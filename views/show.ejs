@@ -1,0 +1,116 @@
+
+<!DOCTYPE ejs>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Financial Tool</title>
+
+<!-- SCRIPTS -->
+
+<!-- jQuery -->
+<script src="scripts/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="scripts/bootstrap/dist/css/bootstrap.min.css">
+<!-- Normalize.css -->
+<link rel="stylesheet" type="text/css" href="scripts/normalize.css/normalize.css">
+
+
+<!-- STATIC  -->
+
+<!-- custom styles -->
+<link rel="stylesheet" type="text/css" href="static/stylesheets/main.css">
+<!-- custom script -->
+<script type="text/javascript" src="static/javascript/app.js"></script> 
+
+ <!-- META -->
+
+<!-- Scale to device width -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+
+<body>
+
+    <div class="container-fluid home">
+
+<!-- Main Panel -->
+      <div class="panel main">
+
+        <!-- Account Types -->
+
+          <div class="btn-default type ">
+              <div class="icon-img"></div>
+                <label>CASH</label> 
+          </div> 
+
+          <!--PROGRESS BAR  -->
+          <div class="btn-default type">
+              <div class="icon-img col-sm-4"></div>
+                <div>
+                  <label>CREDIT CARDS</label>
+                  <h4>$2.800.00</h4>
+                </div>
+                <div class="p-bar col-sm-8">
+                 <progress max="100" value="50"></progress>
+                </div>
+          </div>
+
+
+          <div class="btn-default type">
+              <div class="icon-img"></div>
+                <label>UTILITIES</label>
+                <h3>$2.800.00</h3>
+          </div> 
+
+          <div class="btn-default type">
+              <div class="icon-img"></div>
+                <label>BILLS</label>
+                <h3>$2.800.00</h3>
+          </div> 
+
+          <div class="btn-default type">
+              <div class="icon-img"></div>
+                <label>VACATION</label>
+                <h3>$2.800.00</h3>
+          </div> 
+          
+          <div class="btn-default type">
+              <div class="icon-img"></div>
+                <label>RETIREMENT</label>
+                <h3>$2.800.00</h3>
+          </div> 
+
+          <div class="btn-default type">
+              <div class="icon-img"></div>
+                <label>INVESTMENTS</label>
+                <h3>$2.800.00</h3>
+          </div> 
+          
+          <div class="btn-default type">
+            <div class="icon-img"></div>
+              <label>CHARITY</label>
+              <h3>$2.800.00</h3>
+          </div> 
+
+<!-- End Main Panel  -->
+      </div>
+
+<!-- Body Partial -->
+
+    <!-- Account Panel-->
+    <%include ../public/partials/account%>
+
+
+    <!-- Transactions Panel-->
+    <%include ../public/partials/transactions%>
+
+<!-- End Home Container -->
+    </div>
+
+</body>
+
+</html>
