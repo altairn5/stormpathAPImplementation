@@ -7,12 +7,6 @@ var express = require('express'),
 bodyParser = require('body-parser'),
 cookieParser = require("cookie-parser"),
 stormpath = require('express-stormpath'),
-// session = require('express-session'),
-// path = require('path'),
-// bcrypt = require('bcrypt'),
-// keygen = require('keygenerator'),
-// methodOverride = require('method-override'),
-// http = require('http'),
 app = express();
   
 
