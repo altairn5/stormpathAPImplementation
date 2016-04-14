@@ -20,7 +20,17 @@ app = express();
 app.use('/static',express.static(__dirname + '/public'));
 app.use('/scripts', express.static(__dirname + '/node_modules'));
 app.use(stormpath.init(app,{
-	website: true
+	website: true,
+	web:{
+		login: {
+			enabled: true,
+			nextUri: "/show"
+				},
+		logout: {
+		    enabled: true,
+		    nextUri: '/login'
+				 }
+		}
 	}));
 
 // app.use(stormpath.init(app, {
@@ -38,12 +48,23 @@ app.set('view engine', 'ejs');
 
 //Home view
 app.all('/', function (req, res) {
+  var client = req.app.get('stormpathClient');
+  console.log("are you hitting the root?");
   res.render('index');
 });
 
-app.get('/show', function (req, res){
- 
-  res.render('show');
+app.get('/show', stormpath.loginRequired, stormpath.getUser, function (req, res){
+	var data = req.user.givenName;
+	// console.log(`this is the data = ${data}`);
+	var user = data.slice(0,1).toUpperCase() + data.slice(1).toLowerCase();
+	// console.log(`this is the user = ${user}`);
+	
+ 	if(req.user){
+  		res.render('show', {userInfo: user});
+ 	}
+ 	else{
+ 		res.direct('login');
+ 	}
 
 })
 
