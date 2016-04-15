@@ -67,7 +67,33 @@
 
 });
 
+  /* Special Level Access Routes*/
+
+  /*Admins Route*/
+
+  app.get('/admins', stormpath.groupsRequired(['Admins']), stormpath.getUser, function (req, res){
+
+     var data = req.user.givenName;
+  
+     var FirstName = data.slice(0,1).toUpperCase() + data.slice(1).toLowerCase(); 
+
+     res.send(`${FirstName}, you are an Admin`);
+  });
+
+
+  /* Read-Only Route*/
+  app.get('/read', stormpath.groupsRequired(['ReadOnly', 'Testing', 'Admins']), stormpath.getUser, function (req, res){
+
+     var data = req.user.givenName;
+  
+     var FirstName = data.slice(0,1).toUpperCase() + data.slice(1).toLowerCase(); 
+
+     res.send(`${FirstName}, you are in a read-only endpoint`);
+  });
+
   /*listen on port 3000*/
+
+  // app.get('/test', stormpath.groupRequired)
 
   app.on('stormpath.ready', function() {
 
@@ -76,4 +102,3 @@
   });
 
 
-  
