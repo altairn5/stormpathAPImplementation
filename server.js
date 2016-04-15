@@ -71,7 +71,7 @@
 
   /*Admins Route*/
 
-  app.get('/admins', stormpath.groupsRequired(['Admins']), stormpath.getUser, function (req, res){
+  app.all('/admins', stormpath.groupsRequired(['Admins']), stormpath.getUser, function (req, res){
 
      var data = req.user.givenName;
   
@@ -82,7 +82,7 @@
 
 
   /* Read-Only Route*/
-  app.get('/read', stormpath.groupsRequired(['ReadOnly', 'Testing', 'Admins']), stormpath.getUser, function (req, res){
+  app.all('/read', stormpath.groupsRequired(['ReadOnly', 'Admins', 'Testing'], false), stormpath.getUser, function (req, res){
 
      var data = req.user.givenName;
   
