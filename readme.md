@@ -43,7 +43,8 @@ app.use(express.static('public'));
 * [Setup](http://docs.stormpath.com/nodejs/express/latest/introduction.html)
 
 #### [Configuration](http://docs.stormpath.com/nodejs/express/latest/configuration.html)
-* I tested two ways to configure Stormpath API into my application
+* I tested two ways to configure Stormpath's API into my application. Only one method between environment variables and downloading API Key ID & API Key Secret is necessary. I tested both in this exercise 
+
 	##### Environment Variables
 	*  Inside ".bash_profile"
 	``` BASH 
