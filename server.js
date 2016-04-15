@@ -41,13 +41,13 @@ app.use(stormpath.init(app,{
 app.set('view engine', 'ejs');
 
 //Home view
-app.all('/', function (req, res) {
-  var client = req.app.get('stormpathClient');
-  console.log("are you hitting the root?");
-  res.render('index');
-});
+// app.all('/', function (req, res) {
+//   var client = req.app.get('stormpathClient');
+//   console.log("are you hitting the root?");
+//   res.render('index');
+// });
 
-app.get('/show', stormpath.loginRequired, stormpath.getUser, function (req, res){
+app.all(['/','/show'], stormpath.loginRequired, stormpath.getUser, function (req, res){
 	var data = req.user.givenName;
 	// console.log(`this is the data = ${data}`);
 	var user = data.slice(0,1).toUpperCase() + data.slice(1).toLowerCase();
