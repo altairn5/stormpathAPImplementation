@@ -13,11 +13,13 @@ Node modules were ignored from this repository, so In order to fully implement t
  * npm install -s :
  
  	* express, jquery, ejs, bootstrap, normalize
- * #####  npm install express-stormpath   ```(important!) ```
+ 
  	
 ##### 2) Be sure type "server.js" when prompted for an "entry point: (index.js)" after running ``` npm install -s express ```, instead of the default "index.js".
 
-##### 3) Serve static files.
+##### 3) npm install express-stormpath   ```(important!) ```
+
+##### 4) Serve static files.
 Serve static files located inside:
 
 * The "public" folder ( style sheets, javascripts, partials).
@@ -33,25 +35,24 @@ app.use(express.static('public'));
 ```
  
 
-##### 4) Be sure to require all necessary dependencies inside the “HEAD" of "index.ejs" file.
+##### 5) Be sure to require all necessary dependencies inside the “HEAD" of "index.ejs" file.
  	
 
-#### 5) Stormpath API Implementation
-
-#### Please refer to Stormpath [documentation](http://docs.stormpath.com/nodejs/express/latest/) for more details and information on the required steps:
+##### 6) Stormpath API Implementation
+ Please refer to Stormpath [documentation](http://docs.stormpath.com/nodejs/express/latest/) for more details and information on the steps below:
 * [introduction](http://docs.stormpath.com/nodejs/express/latest/introduction.html)
 * [Setup](http://docs.stormpath.com/nodejs/express/latest/introduction.html)
 
 #### [Configuration](http://docs.stormpath.com/nodejs/express/latest/configuration.html)
 * I tested two  ways to configure Stormpath API into my application
-	* ####  Environment Variables
-	* * Inside ".bash_profile"
+	#####  Environment Variables
+	*  Inside ".bash_profile"
 	``` BASH 
     export STORMPATH_CLIENT_APIKEY_ID=YOUR_ID_HERE
 	export STORMPATH_CLIENT_APIKEY_SECRET=YOUR_SECRET_HERE
 	export STORMPATH_APPLICATION_HREF=YOUR_APP_HREF 
     ``` 
-   	 *	* In Server.js
+   	 *	 In Server.js
    
    ```JavaScript
    	app.use(stormpath.init(app, {
@@ -63,9 +64,9 @@ app.use(express.static('public'));
             href: process.env.STORMPATH_APPLICATION_HREF
             }
        }));
-   
    ```
-	* #### Download API Key ID & API Key Secret
+   
+	##### Download API Key ID & API Key Secret
 	
 		* All requests to Stormpath must be authenticated with an API 			Key.
 
@@ -133,9 +134,6 @@ app.all('/admins', stormpath.groupsRequired(['Admins']),
 
 ```
 #### [Registration](http://docs.stormpath.com/nodejs/express/latest/registration.html)
-
-* #### 	Configuration Options
-This feature supports several options. This example shows what is possible, we will cover them in detail below:
 
 ```javascript
 {
