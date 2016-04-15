@@ -1,12 +1,11 @@
-## Stormpath API Implementation
+## Stormpath's API Implementation
 
-The main goal of this exercise is to show how easly Stormpath API can be implemented. In order to accomplish this goal, I used JavaScript framework, Express (NodeJS).
-The following steps specify the required dependencies, so this exercise can be fully tested.
+The main goal for this exercise is to show how easily Stormpath’s API can be implemented. In order to accomplish this goal, I used JavaScript framework, Express (NodeJS).
 
 ### STEPS
 
 ##### 1) Node Modules 
-Node modules were ignored from this repository, so In order to fully implement this exercise, the following packages need to be installed under node modules using NPM from the Terminal.
+Node modules were ignored from this repository, so in order to fully implement this exercise, the following packages need to be installed under node modules using NPM in the Terminal.
  
 
  * npm init
@@ -44,8 +43,8 @@ app.use(express.static('public'));
 * [Setup](http://docs.stormpath.com/nodejs/express/latest/introduction.html)
 
 #### [Configuration](http://docs.stormpath.com/nodejs/express/latest/configuration.html)
-* I tested two  ways to configure Stormpath API into my application
-	#####  Environment Variables
+* I tested two ways to configure Stormpath API into my application
+	##### Environment Variables
 	*  Inside ".bash_profile"
 	``` BASH 
     export STORMPATH_CLIENT_APIKEY_ID=YOUR_ID_HERE
@@ -68,19 +67,19 @@ app.use(express.static('public'));
    
 	##### Download API Key ID & API Key Secret
 	
-		* All requests to Stormpath must be authenticated with an API 			Key.
+	* All requests to Stormpath must be authenticated with an API 			Key.
 
-		* If you haven’t already, Sign up for Stormpath here. You’ll be 		  sent a verification email.
+	* If you haven’t already, Sign up for Stormpath here. You’ll be 		  sent a verification email.
 
-		* Click the link in the verification email.
+	* Click the link in the verification email.
 
-		* Log in to the Stormpath Admin Console using the email address 			and password you used to register with Stormpath.
+	* Log in to the Stormpath Admin Console using the email address 			and password you used to register with Stormpath.
 
-		* Click the Create API Key or Manage Existing Keys button in 			the middle of the page.
+	* Click the Create API Key or Manage Existing Keys button in 			the middle of the page.
 
-		* Under Security Credentials, click Create API Key.
+	* Under Security Credentials, click Create API Key.
 
-		* This will generate your API Key and download it to your 	 			computer as an apiKey.properties file. If you open the file 			in a text editor, you will see something similar to the 			following:
+	* This will generate your API Key and download it to your 	 			computer as an apiKey.properties file. If you open the file 			in a text editor, you will see something similar to the 			following:
 
 ```bash
 apiKey.id = 144JVZINOF5EBNCMG9EXAMPLE
@@ -89,12 +88,13 @@ apiKey.secret = lWxOiKqKPNwJmSldbiSkEbkNjgh2uRSNAb+AEXAMPLE
 Save this file in a secure location, such as your home directory, in a hidden /.stormpath directory. For example:
 
 ```bash
- $ mkdir ~/.stormpath
- $ mv ~/Downloads/apiKey.properties ~/.stormpath/
+$ mkdir ~/.stormpath
+$ mv ~/Downloads/apiKey.properties ~/.stormpath/
 ```
 #### [Authentication](http://docs.stormpath.com/nodejs/express/latest/authentication.html)
 
 ```javascript
+
 app.all(['/','/show'], stormpath.loginRequired, 	
   		stormpath.getUser, function (req, res){
         
@@ -179,6 +179,7 @@ Implementing social logins such as Google or Facebook is extremely easy with Sto
 
 #### Thoughts 
 
-* I enjoyed building this exercise, as it allowed to experience how easy it is to implement Stormpath's API and user management model.
+* I enjoyed building this exercise, as it allowed to experience how easy it is to implement Stormpath's API and User Management Model.
 
-* With more time, i would have tested  other features of Stormpath's API, such as Password Resets, CustomData, Templates.
+* With more time, I would have tested other features of Stormpath's API, such as Password Resets, CustomData, Templates.
+
