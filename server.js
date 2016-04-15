@@ -40,12 +40,7 @@ app.use(stormpath.init(app,{
 // set view engine to ejs
 app.set('view engine', 'ejs');
 
-//Home view
-// app.all('/', function (req, res) {
-//   var client = req.app.get('stormpathClient');
-//   console.log("are you hitting the root?");
-//   res.render('index');
-// });
+
 
 app.all(['/','/show'], stormpath.loginRequired, stormpath.getUser, function (req, res){
 	var data = req.user.givenName;
