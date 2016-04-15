@@ -38,7 +38,7 @@ app.use(express.static('public'));
  	
 
 ##### 6) Stormpath API Implementation
- Please refer to Stormpath [documentation](http://docs.stormpath.com/nodejs/express/latest/) for more details and information on the steps below:
+ Please refer to Stormpath's [documentation](http://docs.stormpath.com/nodejs/express/latest/) for more details and information on the following steps:
 * [introduction](http://docs.stormpath.com/nodejs/express/latest/introduction.html)
 * [Setup](http://docs.stormpath.com/nodejs/express/latest/introduction.html)
 
